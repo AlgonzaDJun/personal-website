@@ -1,0 +1,62 @@
+.space-y-3 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.75rem * var(--tw-space-y-reverse));
+}
+
+.text-4xl {
+  font-size: 2.25rem /* 36px */;
+  line-height: 2.5rem /* 40px */;
+  /* font-size: 1000px !important; */
+}
+
+@keyframes wave {
+  0% {
+    transform: rotate(0deg);
+  }
+  15% {
+    transform: rotate(14deg);
+  }
+  30% {
+    transform: rotate(-8deg);
+  }
+  40% {
+    transform: rotate(14deg);
+  }
+  50% {
+    transform: rotate(-4deg);
+  }
+  60% {
+    transform: rotate(10deg);
+  }
+  70% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.animate-wave {
+  animation: wave 1s ease-in-out infinite;
+  font-size: 4.5rem /* 72px */;
+  line-height: 1;
+  margin-left: 1.25rem /* z20px */;
+}
+
+@media screen and (min-width: 768px) {
+  .md\:text-5xl {
+    font-size: 4rem /* 48px */;
+    line-height: 1.5;
+  }
+
+  .md\:mx-auto {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+
+  .md\:pl-36 {
+    padding-left: 9rem /* 144px */;
+  }
+}
