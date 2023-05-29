@@ -9,7 +9,7 @@ const Spline = React.lazy(() => import("@splinetool/react-spline"));
 
 export default function Header() {
   return (
-    <div className="w-100 h-100">
+    <div className="w-100 h-100 mt-md-5">
       <div
         className="d-block d-md-flex h-100 w-100 flex-row align-items-center justify-content-center"
         style={{ padding: "1.25rem" }}
@@ -39,7 +39,7 @@ export default function Header() {
             style={{ zIndex: "0", height: "384px", width: "300px" }}
           ></div>
           <div className="position-absolute">
-            <div style={{ height: "384px", width:"500px" }}>
+            <div style={{ height: "384px", }}>
               <Suspense fallback={<div>Loading...</div>}>
                 <Spline scene="https://prod.spline.design/7F8rkyLYHVlUx44t/scene.splinecode" />
               </Suspense>

@@ -46,7 +46,7 @@
 
 @media screen and (min-width: 768px) {
   .md\:text-5xl {
-    font-size: 4rem /* 48px */;
+    font-size: 3.7rem /* 48px */;
     line-height: 1.5;
   }
 
