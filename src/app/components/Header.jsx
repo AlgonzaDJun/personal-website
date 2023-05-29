@@ -1,6 +1,11 @@
-import React from "react";
+"use client";
+import React, { Suspense } from "react";
 import "../css/header.css";
+import { HiHand } from "react-icons/hi";
+// import Spline from "@splinetool/react-spline";
 import Image from "next/image";
+
+const Spline = React.lazy(() => import("@splinetool/react-spline"));
 
 export default function Header() {
   return (
@@ -16,7 +21,10 @@ export default function Header() {
           <div>
             <div className="d-flex align-items-center">
               <div>Hai</div>
-              <div className="animate-wave">👋</div>
+
+              <div className="animate-wave">
+                <HiHand height={500} />
+              </div>
             </div>
             <div>Saya Arjun</div>
             <div>Software Developer</div>
@@ -24,19 +32,18 @@ export default function Header() {
         </div>
         <div
           className="position-relative mt-2 w-100 d-md-flex align-items-center justify-content-center"
-          style={{ padding: "1.75rem", textAlign:'center'}}
+          style={{ padding: "1.75rem", textAlign: "center" }}
         >
           <div
             className="position-absolute rounded-circle shadow-lg"
             style={{ zIndex: "0", height: "384px", width: "300px" }}
           ></div>
           <div className="position-absolute">
-            <img
-              src="https://www.pngmart.com/files/3/Man-PNG-File.png"
-              className=""
-              style={{ height: "384px" }}
-              alt=""
-            />
+            <div style={{ height: "384px", width:"500px" }}>
+              <Suspense fallback={<div>Loading...</div>}>
+                <Spline scene="https://prod.spline.design/7F8rkyLYHVlUx44t/scene.splinecode" />
+              </Suspense>
+            </div>
           </div>
         </div>
       </div>

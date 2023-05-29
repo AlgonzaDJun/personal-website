@@ -55,8 +55,7 @@
     margin-right: auto !important;
   }
 
-
   .md\:pl-36 {
-    padding-left: 9rem /* 144px */;
+    padding-left: 5rem !important /* 144px */;
   }
 }
