@@ -2,14 +2,14 @@
 import React, { Suspense } from "react";
 import "../css/header.css";
 import { HiHand } from "react-icons/hi";
-// import Spline from "@splinetool/react-spline";
-import Image from "next/image";
+import Spline from "@splinetool/react-spline";
+// import Image from "next/image";
 
-const Spline = React.lazy(() => import("@splinetool/react-spline"));
+// const Spline = React.lazy(() => import("@splinetool/react-spline"));
 
 export default function Header() {
   return (
-    <div className="w-100 h-100 mt-md-5">
+    <div className="w-100 h-100 mt-md-3 ">
       <div
         className="d-block d-md-flex h-100 w-100 flex-row align-items-center justify-content-center"
         style={{ padding: "1.25rem" }}
@@ -35,14 +35,14 @@ export default function Header() {
           style={{ padding: "1.75rem", textAlign: "center" }}
         >
           <div
-            className="position-absolute rounded-circle shadow-lg"
-            style={{ zIndex: "0", height: "384px", width: "300px" }}
+            className="position-absolute rounded-circle shadow-lg latar-belakang"
+            style={{ zIndex: "0", height: "350px", width: "300px" }}
           ></div>
           <div className="position-absolute">
-            <div style={{ height: "384px", }}>
-              <Suspense fallback={<div>Loading...</div>}>
-                <Spline scene="https://prod.spline.design/7F8rkyLYHVlUx44t/scene.splinecode" />
-              </Suspense>
+            <div style={{ height: "384px" }}>
+              {/* <Suspense fallback={<div>Loading...</div>}> */}
+              <Spline scene="https://prod.spline.design/7F8rkyLYHVlUx44t/scene.splinecode" />
+              {/* </Suspense> */}
             </div>
           </div>
         </div>
