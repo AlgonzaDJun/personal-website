@@ -6,16 +6,19 @@ export const About = () => {
     {
       judul: "Siapa Saya ?",
       deskripsi: "Perkenalkan, Nama saya, Algonza Dewangga Arjunantyo",
+      image: "/images/thinking-bro.png",
     },
     {
       judul: "Pendidikan ?",
       deskripsi:
         "Universitas Negeri Surabaya, S1 Teknik Informatika Angkatan 2020(Angkatan Corona kwkwkw)",
+      image: "/images/Graduation-bro.png",
     },
     {
       judul: "Ketertarikan ?",
       deskripsi:
         "Saya tertarik di bidang web developer, full stack. namun lebih ke arah backend, tapi suka frontend juga jika bosan.",
+      image: "/images/Code-typing-bro.png",
     },
   ];
   return (
@@ -25,16 +28,21 @@ export const About = () => {
           <div>About Me</div>
         </div>
       </div>
-      <div className="d-flex flex-wrap justify-content-around align-items-center">
+      <div className="w-100 d-flex flex-wrap justify-content-around align-items-center">
         {isiCard.map((item, index) => {
           return (
-            <div className="p-4 mt-5">
+            <div key={index} className="p-4 mt-5">
               <div className="card border-0">
-                <div className="card-2">
+                <div
+                  className="card-2"
+                  style={{ backgroundImage: `url(${item.image})` }}
+                >
                   <h4 className="">{item.judul}</h4>
                 </div>
-                <div className="ps-4 pt-4 pb-3" id="about">
-                  <h5 className="lh-base">{item.deskripsi}</h5>
+                <div className="ps-4 pt-4 pb-3">
+                  <h5 id="about" className="lh-base">
+                    {item.deskripsi}
+                  </h5>
                 </div>
               </div>
             </div>

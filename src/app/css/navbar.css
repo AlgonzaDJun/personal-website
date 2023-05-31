@@ -1,6 +1,6 @@
 .navbar-custom {
   --tw-bg-opacity: 1;
-  background-color: rgb(var(--tw-color-cyan-800) / var(--tw-bg-opacity));
+  background-color: rgb(var(--tw-color-cyan-000) / var(--tw-bg-opacity));
   display: flex;
   padding: var(--tw-size-3);
   justify-content: space-between;

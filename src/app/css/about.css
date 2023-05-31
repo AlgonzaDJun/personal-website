@@ -39,6 +39,7 @@ div.card {
 div.card-2 {
   --tw-bg-opacity: 1;
   background-color: rgb(39 122 101 / var(--tw-bg-opacity));
+  background-size: cover;
   margin-left: var(--tw-size-0);
   margin-right: var(--tw-size-0);
   padding-left: var(--tw-size-7);
