@@ -20,11 +20,10 @@ div.card {
 }
 
 @media screen and (max-width: 768px) {
-    .about {
-        margin-top: 18rem;
-    }
+  .about {
+    margin-top: 18rem;
+  }
 }
-
 
 div.card {
   max-height: var(--tw-size-96);
@@ -48,4 +47,34 @@ div.card-2 {
   padding-bottom: var(--tw-size-11);
   border-top-left-radius: 50px;
   border-top-right-radius: 30px;
+}
+
+.card .card-desc {
+  padding: 0;
+  height: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease-out 0.3s;
+}
+
+.card:hover .card-2 {
+  height: auto !important;
+}
+
+.card:hover .card-desc {
+  height: 100%;
+  visibility: visible !important;
+  opacity: 1;
+  transition: opacity 0.3s ease-out 0.3s;
+  display: block !important;
+  padding-top: 14px;
+  padding-left: 14px;
+  padding-right: 5px;
+}
+
+.card .lh-base {
+  opacity: 0;
+}
+
+.card:hover .lh-base {
+  opacity: 1;
 }
