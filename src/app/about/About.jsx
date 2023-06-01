@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import "../css/about.css";
 
 export const About = () => {
-  const [cardDesc, setCardDesc] = useState(false)
+  const [cardDesc, setCardDesc] = useState(false);
 
   const isiCard = [
     {
@@ -14,7 +14,7 @@ export const About = () => {
     {
       judul: "Pendidikan ?",
       deskripsi:
-        "Universitas Negeri Surabaya, S1 Teknik Informatika Angkatan 2020(Angkatan Corona kwkwkw)",
+        "Saya berasal dari Universitas Negeri Surabaya, S1 Teknik Informatika Angkatan 2020 (Angkatan Corona😆)",
       image: "/images/Graduation-bro.png",
     },
     {
@@ -31,8 +31,8 @@ export const About = () => {
           <div>About Me</div>
         </div>
       </div>
-      <div className="w-100 d-flex flex-wrap justify-content-around align-items-center">
-        <div className="mt-5">
+      <div className="w-100 d-flex flex-wrap justify-content-around align-items-center mb-5 mb-md-3">
+        {/* <div className="mt-5">
           <div
             className="card border-0"
           >
@@ -50,18 +50,20 @@ export const About = () => {
               </h5>
             </div>
           </div>
-        </div>
-        {/* {isiCard.map((item, index) => {
+        </div> */}
+        {isiCard.map((item, index) => {
           return (
-            <div key={index} className="p-4 mt-5">
+            <div key={index} className="mt-5">
               <div className="card border-0">
                 <div
-                  className="card-2"
+                  className="card-2 h-100 w-100 d-flex flex-column"
                   style={{ backgroundImage: `url(${item.image})` }}
                 >
-                  <h4 className="">{item.judul}</h4>
+                  <h4 className="judul-card fw-bold fs-3 mt-auto">
+                    {item.judul}
+                  </h4>
                 </div>
-                <div className="ps-4 pt-4 pb-3">
+                <div className="ps-4 card-desc">
                   <h5 id="about" className="lh-base">
                     {item.deskripsi}
                   </h5>
@@ -69,7 +71,7 @@ export const About = () => {
               </div>
             </div>
           );
-        })} */}
+        })}
       </div>
     </div>
   );
