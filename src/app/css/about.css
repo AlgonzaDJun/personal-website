@@ -66,7 +66,7 @@ div.card-2 {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   transition-property: border-radius;
-  transition-duration: 0.5s;
+  transition-duration: 1s;
 }
 
 .card .card-desc {
@@ -74,7 +74,12 @@ div.card-2 {
   height: 0;
   opacity: 0;
   display: none;
-  transition: display 0.8s ease-in-out;
+  transition: display 1.5s ease-in-out;
+}
+
+.card:hover {
+  scale: 1.05;
+  transition: scale 0.9s ease-in-out;
 }
 
 .card:hover .card-2 {

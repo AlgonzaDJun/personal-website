@@ -2,10 +2,19 @@
 import React, { Suspense } from "react";
 import "../css/header.css";
 import { HiHand } from "react-icons/hi";
-import Spline from "@splinetool/react-spline";
+import dynamic from "next/dynamic";
+// import Spline from "@splinetool/react-spline";
 // import Image from "next/image";
 
 // const Spline = React.lazy(() => import("@splinetool/react-spline"));
+const Spline = dynamic(() => import("@splinetool/react-spline"), {
+  ssr: false,
+  loading: () => (
+    <div className="w-100 h-100 pt-5" style={{ minWidth: "360px" }}>
+      <div class="custom-loader mt-5"></div>
+    </div>
+  ),
+});
 
 export default function Header() {
   return (
@@ -36,11 +45,23 @@ export default function Header() {
         >
           <div
             className="position-absolute rounded-circle shadow-lg latar-belakang"
-            style={{ zIndex: "0", height: "350px", width: "300px" }}
+            style={{ zIndex: "0", height: "350px", width: "360px" }}
           ></div>
           <div className="position-absolute">
-            <div style={{ height: "384px" }}>
-              {/* <Suspense fallback={<div>Loading...</div>}> */}
+            <div
+              style={{ height: "384px", zIndex: "1", maxWidth: "360px" }}
+              className="spline"
+            >
+              {/* <Suspense
+                fallback={
+                  <div
+                    className="w-100 h-100 mt-5 display-1"
+                    style={{ minWidth: "360px" }}
+                  >
+                    Loading...
+                  </div>
+                }
+              > */}
               <Spline scene="https://prod.spline.design/7F8rkyLYHVlUx44t/scene.splinecode" />
               {/* </Suspense> */}
             </div>

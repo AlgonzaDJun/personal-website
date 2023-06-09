@@ -21,7 +21,7 @@ export default function Navbar() {
             About
           </Link>
           <Link
-            href="/project"
+            href="#project"
             className="navbar-link text-white text-decoration-none"
           >
             My Project

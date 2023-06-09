@@ -1,6 +1,10 @@
 "use client";
 import React, { useState } from "react";
 import "../css/about.css";
+import AOS from "aos";
+import "aos/dist/aos.css"; // You can also use <link> for styles
+// ..
+AOS.init();
 
 export const About = () => {
   const [cardDesc, setCardDesc] = useState(false);
@@ -8,24 +12,27 @@ export const About = () => {
   const isiCard = [
     {
       judul: "Siapa Saya ?",
-      deskripsi: "Perkenalkan, Nama saya, Algonza Dewangga Arjunantyo",
+      deskripsi: "Perkenalkan, Nama saya, Algonza Dewangga Arjunantyo, biasa dipanggil arjun",
       image: "/images/thinking-bro.png",
+      animation: "fade-up-right",
     },
     {
       judul: "Pendidikan ?",
       deskripsi:
         "Saya berasal dari Universitas Negeri Surabaya, S1 Teknik Informatika Angkatan 2020 (Angkatan Corona😆)",
       image: "/images/Graduation-bro.png",
+      animation: "fade-up",
     },
     {
       judul: "Ketertarikan ?",
       deskripsi:
         "Saya tertarik di bidang web developer, full stack. namun lebih ke arah backend, tapi suka frontend juga jika bosan.",
       image: "/images/Code-typing-bro.png",
+      animation: "fade-up-left",
     },
   ];
   return (
-    <div className="w-100 h-100 mt-md-4 d-block p-3 d-md-flex justify-content-md-center align-items-md-center flex-column about">
+    <div className="w-100 h-100 mt-md-4 d-block p-3 d-md-flex justify-content-md-center align-items-md-center flex-column about mb-5">
       <div className="p-4">
         <div className="display-3 fw-bold about-text">
           <div>About Me</div>
@@ -53,7 +60,16 @@ export const About = () => {
         </div> */}
         {isiCard.map((item, index) => {
           return (
-            <div key={index} className="mt-5">
+            <div
+              id="about"
+              key={index}
+              className="mt-5"
+              data-aos={item.animation}
+              data-aos-offset="100"
+              data-aos-delay="50"
+              data-aos-duration="2000"
+              data-aos-easing="ease-in-out"
+            >
               <div className="card border-0">
                 <div
                   className="card-2 h-100 w-100 d-flex flex-column"
