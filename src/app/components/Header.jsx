@@ -47,10 +47,10 @@ export default function Header() {
             className="position-absolute rounded-circle shadow-lg latar-belakang"
             style={{ zIndex: "0", height: "350px", width: "360px" }}
           ></div>
-          <div className="position-absolute">
+          <div className="position-absolute w-100">
             <div
               style={{ height: "384px", zIndex: "1", maxWidth: "360px" }}
-              className="spline"
+              className="spline mx-auto"
             >
               {/* <Suspense
                 fallback={

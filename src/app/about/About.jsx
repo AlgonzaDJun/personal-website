@@ -2,8 +2,7 @@
 import React, { useState } from "react";
 import "../css/about.css";
 import AOS from "aos";
-import "aos/dist/aos.css"; // You can also use <link> for styles
-// ..
+import "aos/dist/aos.css";
 AOS.init();
 
 export const About = () => {
@@ -11,12 +10,14 @@ export const About = () => {
 
   const isiCard = [
     {
+      id : 1,
       judul: "Siapa Saya ?",
       deskripsi: "Perkenalkan, Nama saya, Algonza Dewangga Arjunantyo, biasa dipanggil arjun",
       image: "/images/thinking-bro.png",
       animation: "fade-up-right",
     },
     {
+      id : 2,
       judul: "Pendidikan ?",
       deskripsi:
         "Saya berasal dari Universitas Negeri Surabaya, S1 Teknik Informatika Angkatan 2020 (Angkatan Corona😆)",
@@ -24,6 +25,7 @@ export const About = () => {
       animation: "fade-up",
     },
     {
+      id : 3,
       judul: "Ketertarikan ?",
       deskripsi:
         "Saya tertarik di bidang web developer, full stack. namun lebih ke arah backend, tapi suka frontend juga jika bosan.",
@@ -38,7 +40,7 @@ export const About = () => {
           <div>About Me</div>
         </div>
       </div>
-      <div className="w-100 d-flex flex-wrap justify-content-around align-items-center mb-5 mb-md-3">
+      <div className="w-100 d-flex flex-wrap justify-content-around align-items-center mb-5 mb-md-3 gap-3">
         {/* <div className="mt-5">
           <div
             className="card border-0"
@@ -62,7 +64,7 @@ export const About = () => {
           return (
             <div
               id="about"
-              key={index}
+              key={item.id}
               className="mt-5"
               data-aos={item.animation}
               data-aos-offset="100"

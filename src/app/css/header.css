@@ -63,7 +63,7 @@
 @media screen and (max-width: 768px) {
   .latar-belakang {
     left: 50%;
-    margin-top: 50%;
+    margin-top: 30%;
     transform: translate(-50%, -50%);
     max-height: 340px;
   }
@@ -74,6 +74,13 @@
 
   .custom-loader {
     margin: 0;
+  }
+}
+
+/* mobile */
+@media screen and (max-width: 480px) {
+  .latar-belakang {
+    margin-top: 50% !important;
   }
 }
 
