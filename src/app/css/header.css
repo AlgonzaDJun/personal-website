@@ -69,11 +69,12 @@
   }
 
   .spline {
-    height: 350px;
+    max-height: 350px;
   }
 
   .custom-loader {
     margin: 0;
+    margin-top: 50px !important;
   }
 }
 

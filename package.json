@@ -19,6 +19,11 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.9.0",
-    "swiper": "^9.3.2"
+    "swiper": "^9.3.2",
+    "@react-three/drei": "^9.4.2",
+    "@react-three/fiber": "^8.0.11",
+    "@splinetool/r3f-spline": "^1.0.1",
+    "@splinetool/loader": "^0.9.369",
+    "three": "^0.149.0"
   }
 }

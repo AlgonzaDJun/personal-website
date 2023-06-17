@@ -27,5 +27,46 @@
 .navbar-link {
   /* --tw-size-3: 0.75rem; */
   border-radius: var(--tw-border-radius-sm);
-  padding: var(--tw-size-3);
+  padding: var(--tw-size-5);
+}
+
+@media screen and (max-width: 768px) {
+  .my-navbar {
+    overflow: hidden; /* Hide the element content, while height = 0 */
+    height: 0;
+    opacity: 0;
+    transition: height 0ms 400ms, opacity 400ms 0ms;
+  }
+
+  .nav-show {
+    height: auto;
+    opacity: 1;
+    transition: height 0ms 300ms, opacity 600ms 0ms;
+  }
+
+  .navbar-link {
+    font-size: large;
+    width: 100%;
+    padding: var(--tw-size-3);
+  }
+
+  .navbar-link:hover {
+    --tw-bg-opacity: 1;
+    background-color: rgb(var(--tw-color-teal-900) / var(--tw-bg-opacity));
+  }
+
+  li {
+    margin-block: 25px;
+    width: 100%;
+  }
+}
+
+.fixed-top {
+  background: rgb(13, 148, 136);
+  background: linear-gradient(
+    146deg,
+    rgba(13, 148, 136, 1) 0%,
+    rgba(7, 89, 133, 1) 100%,
+    rgb(13, 148, 141, 1) 100%
+  );
 }

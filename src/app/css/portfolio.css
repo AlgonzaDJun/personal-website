@@ -47,8 +47,10 @@ div.about-text {
 .porto-card-description {
   /* width: 50rem; */
   margin-inline: auto;
-  overflow: scroll;
+  /* overflow: scroll; */
+  overflow-y: auto;
   padding-inline: 5rem;
+  height: 150px;
   max-height: 170px;
 }
 
@@ -56,6 +58,7 @@ div.about-text {
   .porto-card-description {
     text-align: left;
     padding-inline: 0.2rem;
+    height: 150px;
     max-height: 150px;
     overflow-y: scroll;
     scroll-behavior: smooth;

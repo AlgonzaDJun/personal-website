@@ -10,7 +10,14 @@ import Link from "next/link";
 import { BsGithub, BsLink } from "react-icons/bs";
 import { DiMongodb, DiNodejsSmall, DiReact } from "react-icons/di";
 import { IconContext } from "react-icons";
-import { SiExpress } from "react-icons/si";
+import {
+  SiExpress,
+  SiJquery,
+  SiMui,
+  SiPhp,
+  SiPusher,
+  SiRedux,
+} from "react-icons/si";
 import "lightbox2/dist/css/lightbox.min.css";
 import "lightbox2/dist/js/lightbox-plus-jquery.min.js";
 import AOS from "aos";
@@ -36,6 +43,35 @@ export const Portfolio = () => {
         <DiNodejsSmall color="green" />,
       ],
     },
+    {
+      id: 2,
+      title: "J-Commerce",
+      image: "/images/porto-img/2.jpeg",
+      image2: "/images/porto-img/2b.jpeg",
+      desc: "Website (frontend) E-Commerce alat elektronik yang dikembangkan menggunakan ReactJS",
+      gitLink: "https://github.com/AlgonzaDJun/J-Commerce",
+      demoLink: "https://j-commerce.netlify.app",
+      icon: [
+        <DiReact color="#62d4fa" />,
+        <SiMui color="#3477ea" style={{ backgroundColor: "white" }} />,
+        <SiRedux color="white" style={{ backgroundColor: "#764abc" }} />,
+      ],
+    },
+    {
+      id: 3,
+      title: "In Your Dreams",
+      image: "/images/porto-img/3.jpeg",
+      image2: "/images/porto-img/3b.jpeg",
+      image3: "/images/porto-img/3c.jpeg",
+      desc: "Website ini memiliki fitur-fitur yang memungkinkan pengguna berinteraksi dengan admin melalui live chat, dan mengelola inventaris bagi admin.",
+      gitLink: "https://github.com/AlgonzaDJun/in-your-dreams",
+      demoLink: "http://your-dreams-demo.epizy.com",
+      icon: [
+        <SiPhp color="##797cb0" />,
+        <SiJquery color="blue" />,
+        <SiPusher color="black" />,
+      ],
+    },
   ];
 
   return (
@@ -47,7 +83,7 @@ export const Portfolio = () => {
       </div>
       <div
         className="py-2 px-0 px-sm-5 w-100 h-100 mx-auto"
-        data-aos="flip-up"
+        data-aos="zoom-in-up"
         data-aos-delay="50"
         data-aos-duration="1500"
         data-aos-easing="ease-in-out"
@@ -71,8 +107,8 @@ export const Portfolio = () => {
           loop={true}
           navigation
           style={{
-            "--swiper-navigation-color": "#fff",
-            "--swiper-pagination-color": "#fff",
+            "--swiper-navigation-color": "black",
+            "--swiper-pagination-color": "black",
           }}
         >
           {porto.map((item, index) => {
@@ -94,6 +130,11 @@ export const Portfolio = () => {
                       data-lightbox="my-porto"
                     ></a>
                     <a href={item.image2} data-lightbox="my-porto"></a>
+                    {item.image3 ? (
+                      <a href={item.image3} data-lightbox="my-porto"></a>
+                    ) : (
+                      ""
+                    )}
                   </div>
                   <div className="porto-card-title">
                     <Link target="_blank" href={item.gitLink}>

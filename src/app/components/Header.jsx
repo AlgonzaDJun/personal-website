@@ -3,22 +3,30 @@ import React, { Suspense } from "react";
 import "../css/header.css";
 import { HiHand } from "react-icons/hi";
 import dynamic from "next/dynamic";
+import { Canvas } from "@react-three/fiber";
+import Scene from "./Scene";
 // import Spline from "@splinetool/react-spline";
 // import Image from "next/image";
 
 // const Spline = React.lazy(() => import("@splinetool/react-spline"));
-const Spline = dynamic(() => import("@splinetool/react-spline"), {
-  ssr: false,
-  loading: () => (
-    <div className="w-100 h-100 pt-5" style={{ minWidth: "360px" }}>
-      <div class="custom-loader mt-5"></div>
-    </div>
-  ),
-});
+// const Spline = dynamic(() => import("@splinetool/react-spline"), {
+//   ssr: false,
+//   loading: () => (
+//     <div className="w-100 h-100 pt-5" style={{ minWidth: "360px" }}>
+//       <div className="custom-loader mt-5"></div>
+//     </div>
+//   ),
+// });
+
+const Loading = () => (
+  <div className="w-100 h-100 pt-5" style={{ minWidth: "360px" }}>
+    <div className="custom-loader mt-5"></div>
+  </div>
+);
 
 export default function Header() {
   return (
-    <div className="w-100 h-100 mt-md-3 ">
+    <div className="w-100 h-100 mt-md-3 mt-5">
       <div
         className="d-block d-md-flex h-100 w-100 flex-row align-items-center justify-content-center"
         style={{ padding: "1.25rem" }}
@@ -35,7 +43,7 @@ export default function Header() {
                 <HiHand height={500} />
               </div>
             </div>
-            <div>Saya Arjun</div>
+            <div className="my-3">Saya Arjun</div>
             <div>Software Developer</div>
           </div>
         </div>
@@ -62,8 +70,15 @@ export default function Header() {
                   </div>
                 }
               > */}
-              <Spline scene="https://prod.spline.design/7F8rkyLYHVlUx44t/scene.splinecode" />
+              {/* <Spline scene="https://prod.spline.design/7F8rkyLYHVlUx44t/scene.splinecode" /> */}
               {/* </Suspense> */}
+
+              <Suspense fallback={<Loading />}>
+                <Canvas shadows flat linear>
+                  <Scene />
+                  {/* <OrbitControls /> */}
+                </Canvas>
+              </Suspense>
             </div>
           </div>
         </div>
