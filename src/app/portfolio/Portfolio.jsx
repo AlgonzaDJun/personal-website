@@ -19,7 +19,7 @@ import {
   SiRedux,
 } from "react-icons/si";
 import "lightbox2/dist/css/lightbox.min.css";
-import "lightbox2/dist/js/lightbox-plus-jquery.min.js";
+// import "lightbox2/dist/js/lightbox-plus-jquery.min.js";
 import AOS from "aos";
 import "aos/dist/aos.css";
 // AOS.init();
@@ -42,10 +42,10 @@ export const Portfolio = () => {
       gitLink: "https://github.com/AlgonzaDJun/Food-Corner",
       demoLink: "https://blue-bewildered-swallow.cyclic.app",
       icon: [
-        <DiMongodb color="green" />,
-        <SiExpress color="black" />,
-        <DiReact color="#62d4fa" />,
-        <DiNodejsSmall color="green" />,
+        <DiMongodb key={1} color="green" />,
+        <SiExpress key={2} color="black" />,
+        <DiReact key={3} color="#62d4fa" />,
+        <DiNodejsSmall key={4} color="green" />,
       ],
     },
     {
@@ -57,9 +57,13 @@ export const Portfolio = () => {
       gitLink: "https://github.com/AlgonzaDJun/J-Commerce",
       demoLink: "https://j-commerce.netlify.app",
       icon: [
-        <DiReact color="#62d4fa" />,
-        <SiMui color="#3477ea" style={{ backgroundColor: "white" }} />,
-        <SiRedux color="white" style={{ backgroundColor: "#764abc" }} />,
+        <DiReact key={1} color="#62d4fa" />,
+        <SiMui key={2} color="#3477ea" style={{ backgroundColor: "white" }} />,
+        <SiRedux
+          key={3}
+          color="white"
+          style={{ backgroundColor: "#764abc" }}
+        />,
       ],
     },
     {
@@ -72,9 +76,9 @@ export const Portfolio = () => {
       gitLink: "https://github.com/AlgonzaDJun/in-your-dreams",
       demoLink: "http://your-dreams-demo.epizy.com",
       icon: [
-        <SiPhp color="##797cb0" />,
-        <SiJquery color="blue" />,
-        <SiPusher color="black" />,
+        <SiPhp key={1} color="##797cb0" />,
+        <SiJquery key={2} color="blue" />,
+        <SiPusher key={3} color="black" />,
       ],
     },
   ];
