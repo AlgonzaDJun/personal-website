@@ -1,11 +1,13 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import "../css/about.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
-AOS.init();
 
 export const About = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   const isiCard = [
     {
       id: 1,

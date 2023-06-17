@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import "../css/portfolio.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.min.css";
@@ -22,10 +22,15 @@ import "lightbox2/dist/css/lightbox.min.css";
 import "lightbox2/dist/js/lightbox-plus-jquery.min.js";
 import AOS from "aos";
 import "aos/dist/aos.css";
-AOS.init();
+// AOS.init();
 
 export const Portfolio = () => {
   const targetRef = useRef(null);
+
+  useEffect(() => {
+    AOS.init();
+    // import lightbox plus jquery
+  }, []);
 
   const porto = [
     {

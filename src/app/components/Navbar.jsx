@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import "../css/navbar.css";
 import Link from "next/link";
 import { GiGamepad, GiHamburgerMenu } from "react-icons/gi";
-import "bootstrap";
+// import "bootstrap";
 
 export default function Navbar() {
   const ref = useRef(null);
