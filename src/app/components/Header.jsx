@@ -1,10 +1,8 @@
-"use client";
+// "use client";
 import React, { Suspense } from "react";
 import "../css/header.css";
 import { HiHand } from "react-icons/hi";
-import dynamic from "next/dynamic";
-import { Canvas } from "@react-three/fiber";
-import Scene from "./Scene";
+import { MyScene } from "./MyScene";
 // import Spline from "@splinetool/react-spline";
 // import Image from "next/image";
 
@@ -17,12 +15,6 @@ import Scene from "./Scene";
 //     </div>
 //   ),
 // });
-
-const Loading = () => (
-  <div className="w-100 h-100 pt-5" style={{ minWidth: "360px" }}>
-    <div className="custom-loader mt-5"></div>
-  </div>
-);
 
 export default function Header() {
   return (
@@ -43,7 +35,7 @@ export default function Header() {
                 <HiHand height={500} />
               </div>
             </div>
-            <div className="my-3">Saya Arjun</div>
+            <div className="my-3">Saya Algonza Dewangga Arjunantyo</div>
             <div>Software Developer</div>
           </div>
         </div>
@@ -72,13 +64,7 @@ export default function Header() {
               > */}
               {/* <Spline scene="https://prod.spline.design/7F8rkyLYHVlUx44t/scene.splinecode" /> */}
               {/* </Suspense> */}
-
-              <Suspense fallback={<Loading />}>
-                <Canvas shadows flat linear>
-                  <Scene />
-                  {/* <OrbitControls /> */}
-                </Canvas>
-              </Suspense>
+              <MyScene />
             </div>
           </div>
         </div>

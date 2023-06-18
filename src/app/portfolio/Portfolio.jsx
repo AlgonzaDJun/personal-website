@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "../css/portfolio.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.min.css";
@@ -27,9 +27,11 @@ import "aos/dist/aos.css";
 export const Portfolio = () => {
   const targetRef = useRef(null);
 
+  const [domLoaded, setDomLoaded] = useState(false);
+
   useEffect(() => {
     AOS.init();
-    // import lightbox plus jquery
+    setDomLoaded(true);
   }, []);
 
   const porto = [
@@ -93,87 +95,89 @@ export const Portfolio = () => {
       <div
         className="py-2 px-0 px-sm-5 w-100 h-100 mx-auto"
         data-aos="zoom-in-up"
-        data-aos-delay="50"
-        data-aos-duration="1500"
+        // data-aos-delay="50"
+        data-aos-duration="1300"
         data-aos-easing="ease-in-out"
       >
-        <Swiper
-          modules={[Autoplay, Pagination, Navigation, EffectFade]}
-          grabCursor={true}
-          effect="fade"
-          spaceBetween={50}
-          slidesPerView={1}
-          // onSlideChange={() => console.log("slide change")}
-          // onSwiper={(swiper) => console.log(swiper)}
-          // centeredSlides={true}
-          autoplay={{
-            delay: 3000,
-            pauseOnMouseEnter: true,
-          }}
-          pagination={{
-            clickable: true,
-          }}
-          loop={true}
-          navigation
-          style={{
-            "--swiper-navigation-color": "black",
-            "--swiper-pagination-color": "black",
-          }}
-        >
-          {porto.map((item, index) => {
-            return (
-              <SwiperSlide key={index} className="text-center">
-                <div className="porto-card">
-                  <div className="porto-card-image">
-                    <img
-                      src={item.image}
-                      style={{ objectFit: "fill" }}
-                      alt="gambar"
-                      onClick={() => {
-                        targetRef.current.click();
-                      }}
-                    />
-                    <a
-                      ref={targetRef}
-                      href={item.image}
-                      data-lightbox="my-porto"
-                    ></a>
-                    <a href={item.image2} data-lightbox="my-porto"></a>
-                    {item.image3 ? (
-                      <a href={item.image3} data-lightbox="my-porto"></a>
-                    ) : (
-                      ""
-                    )}
+        {domLoaded ? (
+          <Swiper
+            modules={[Autoplay, Pagination, Navigation, EffectFade]}
+            grabCursor={true}
+            effect="fade"
+            spaceBetween={50}
+            slidesPerView={1}
+            // onSlideChange={() => console.log("slide change")}
+            // onSwiper={(swiper) => console.log(swiper)}
+            // centeredSlides={true}
+            autoplay={{
+              delay: 3000,
+              pauseOnMouseEnter: true,
+            }}
+            pagination={{
+              clickable: true,
+            }}
+            loop={true}
+            navigation
+            style={{
+              "--swiper-navigation-color": "black",
+              "--swiper-pagination-color": "black",
+            }}
+          >
+            {porto.map((item, index) => {
+              return (
+                <SwiperSlide key={index} className="text-center">
+                  <div className="porto-card">
+                    <div className="porto-card-image">
+                      <img
+                        src={item.image}
+                        style={{ objectFit: "fill" }}
+                        alt="gambar"
+                        onClick={() => {
+                          targetRef.current.click();
+                        }}
+                      />
+                      <a
+                        ref={targetRef}
+                        href={item.image}
+                        data-lightbox="my-porto"
+                      ></a>
+                      <a href={item.image2} data-lightbox="my-porto"></a>
+                      {item.image3 ? (
+                        <a href={item.image3} data-lightbox="my-porto"></a>
+                      ) : (
+                        ""
+                      )}
+                    </div>
+                    <div className="porto-card-title">
+                      <Link target="_blank" href={item.gitLink}>
+                        <BsGithub color="black" />
+                      </Link>
+                      <h3 className="my-auto mx-3">{item.title}</h3>
+                      <Link target="_blank" href={item.demoLink}>
+                        <BsLink color="black" />
+                      </Link>
+                    </div>
+                    <div className="porto-card-description">
+                      <p className="px-4 border-2">{item.desc}</p>
+                    </div>
+                    <div className="porto-card-tech">
+                      <p className="px-4 border-2 text-center">
+                        <div className="fw-bold">Tech Stack: </div>
+                        <IconContext.Provider
+                          value={{ size: "60", className: "icon-context" }}
+                        >
+                          {item.icon.map((icon) => {
+                            return icon;
+                          })}
+                        </IconContext.Provider>
+                      </p>
+                    </div>
                   </div>
-                  <div className="porto-card-title">
-                    <Link target="_blank" href={item.gitLink}>
-                      <BsGithub color="black" />
-                    </Link>
-                    <h3 className="my-auto mx-3">{item.title}</h3>
-                    <Link target="_blank" href={item.demoLink}>
-                      <BsLink color="black" />
-                    </Link>
-                  </div>
-                  <div className="porto-card-description">
-                    <p className="px-4 border-2">{item.desc}</p>
-                  </div>
-                  <div className="porto-card-tech">
-                    <p className="px-4 border-2 text-center">
-                      <div className="fw-bold">Tech Stack: </div>
-                      <IconContext.Provider
-                        value={{ size: "60", className: "icon-context" }}
-                      >
-                        {item.icon.map((icon) => {
-                          return icon;
-                        })}
-                      </IconContext.Provider>
-                    </p>
-                  </div>
-                </div>
-              </SwiperSlide>
-            );
-          })}
-        </Swiper>
+                </SwiperSlide>
+              );
+            })}
+          </Swiper>
+        ) : null}
       </div>
     </div>
   );
