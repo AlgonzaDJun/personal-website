@@ -1,7 +1,4 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  siteUrl: "https://algonza-portfolio.vercel.app",
-  generateRobotsTxt: true, // (optional)
-};
+const nextConfig = {};
 
 module.exports = nextConfig;
