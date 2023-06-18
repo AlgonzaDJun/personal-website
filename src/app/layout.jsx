@@ -6,8 +6,8 @@ import Navbar from "./components/Navbar";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Algonza Website",
-  description: "Portfolio algonza",
+  title: "Algonza Dewangga Arjunantyo",
+  description: "Algonza Dewangga Arjunantyo's personal website",
 };
 
 export default function RootLayout({ children }) {

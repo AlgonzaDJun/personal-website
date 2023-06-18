@@ -31,6 +31,7 @@ export const Portfolio = () => {
 
   useEffect(() => {
     AOS.init();
+    require("lightbox2/dist/js/lightbox-plus-jquery.min.js");
     setDomLoaded(true);
   }, []);
 
