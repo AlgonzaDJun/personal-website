@@ -29,7 +29,7 @@ export default function Navbar() {
           className="d-md-flex align-items-center"
           style={{ fontSize: "30px" }}
         >
-          <GiGamepad size="40" />
+          <GiGamepad size="50" />
         </div>
         <div className="d-none d-md-flex align-items-center mx-4 h-100">
           <div className="hidden md:flex items-center mx-2">

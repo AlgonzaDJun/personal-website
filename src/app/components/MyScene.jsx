@@ -1,7 +1,9 @@
 "use client";
-import { Canvas } from "@react-three/fiber";
+// import { Canvas } from "@react-three/fiber";
 import React, { Suspense } from "react";
-import Scene from "./Scene";
+import "../css/profile.css";
+// import Scene from "./Scene";
+import Image from "next/image";
 
 export const MyScene = () => {
   const Loading = () => (
@@ -12,10 +14,17 @@ export const MyScene = () => {
   return (
     <>
       <Suspense fallback={<Loading />}>
-        <Canvas shadows flat linear>
-          <Scene />
-          {/* <OrbitControls /> */}
-        </Canvas>
+        <Image
+          src="/images/arjuna.png"
+          height={200}
+          width={200}
+          className="image-profile"
+          style={{ margin: "auto" }}
+        />
+        {/* <Canvas shadows flat linear> */}
+        {/* <Scene /> */}
+        {/* <OrbitControls /> */}
+        {/* </Canvas> */}
       </Suspense>
     </>
   );

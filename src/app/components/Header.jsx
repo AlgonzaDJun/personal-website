@@ -18,7 +18,7 @@ import { MyScene } from "./MyScene";
 
 export default function Header() {
   return (
-    <div className="w-100 h-100 mt-md-3 mt-5">
+    <div className="w-100 h-100 mt-md-5 mt-5">
       <div
         className="d-block d-md-flex h-100 w-100 flex-row align-items-center justify-content-center"
         style={{ padding: "1.25rem" }}
@@ -49,7 +49,12 @@ export default function Header() {
           ></div>
           <div className="position-absolute w-100">
             <div
-              style={{ height: "384px", zIndex: "1", maxWidth: "360px" }}
+              style={{
+                height: "384px",
+                zIndex: "1",
+                maxWidth: "360px",
+                maxHeight: "384px",
+              }}
               className="spline mx-auto"
             >
               {/* <Suspense

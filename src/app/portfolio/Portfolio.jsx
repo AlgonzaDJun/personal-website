@@ -13,7 +13,9 @@ import { IconContext } from "react-icons";
 import {
   SiExpress,
   SiJquery,
+  SiLaravel,
   SiMui,
+  SiMysql,
   SiPhp,
   SiPusher,
   SiRedux,
@@ -82,6 +84,21 @@ export const Portfolio = () => {
         <SiPhp key={1} color="##797cb0" />,
         <SiJquery key={2} color="blue" />,
         <SiPusher key={3} color="black" />,
+      ],
+    },
+    {
+      id: 4,
+      title: "Travel Website",
+      image: "/images/porto-img/4.png",
+      image2: "/images/porto-img/4b.png",
+      image3: "/images/porto-img/4c.png",
+      desc: "Website pemesanan paket travel dengan integrasi payment gateway dari MIDTRANS serta dashboarad admin.",
+      gitLink: "#",
+      demoLink: "https://travel.juna.my.id",
+      icon: [
+        <SiLaravel key={1} color="#F05340" />,
+        <SiMysql key={2} color="#00758f" />,
+        <SiJquery key={3} color="black" />,
       ],
     },
   ];

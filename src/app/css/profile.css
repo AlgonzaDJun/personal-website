@@ -1,0 +1,7 @@
+@media screen and (max-width: 768px) {
+    .image-profile {
+        margin-top: -40px !important;
+        margin-right: 100px !important;
+        /* background-color: red; */
+    }
+}
