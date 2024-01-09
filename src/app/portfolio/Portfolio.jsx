@@ -28,7 +28,6 @@ import "aos/dist/aos.css";
 // AOS.init();
 
 export const Portfolio = () => {
-
   const [domLoaded, setDomLoaded] = useState(false);
 
   useEffect(() => {
@@ -72,20 +71,6 @@ export const Portfolio = () => {
       ],
     },
     {
-      id: 3,
-      title: "Todo List With Chat",
-      image: "/images/porto-img/todo.png",
-      image2: "/images/porto-img/todo2.png",
-      desc: "Sebuah Website untuk mengelola todo list Anda dengan tambahan fitur chat antar teman.",
-      gitLink: "https://github.com/AlgonzaDJun/TODO-CHAT",
-      demoLink: "https://todo.juna.my.id/",
-      icon: [
-        <SiLaravel key={1} color="#F05340" />,
-        <SiTailwindcss  key={2} color="#15BECB"/>,
-        <SiPusher key={3} color="#300D4F" />,
-      ],
-    },
-    {
       id: 4,
       title: "Travel Website",
       image: "/images/porto-img/4.png",
@@ -98,6 +83,20 @@ export const Portfolio = () => {
         <SiLaravel key={1} color="#F05340" />,
         <SiMysql key={2} color="#00758f" />,
         <SiJquery key={3} color="black" />,
+      ],
+    },
+    {
+      id: 3,
+      title: "Todo List With Chat",
+      image: "/images/porto-img/todo.png",
+      image2: "/images/porto-img/todo2.png",
+      desc: "Sebuah Website untuk mengelola todo list Anda dengan tambahan fitur chat antar teman.",
+      gitLink: "https://github.com/AlgonzaDJun/TODO-CHAT",
+      demoLink: "https://todo.juna.my.id/",
+      icon: [
+        <SiLaravel key={1} color="#F05340" />,
+        <SiTailwindcss key={2} color="#15BECB" />,
+        <SiPusher key={3} color="#300D4F" />,
       ],
     },
   ];
@@ -145,10 +144,7 @@ export const Portfolio = () => {
                 <SwiperSlide key={index} className="text-center">
                   <div className="porto-card">
                     <div className="porto-card-image">
-                      <a
-                        href={item.image}
-                        data-lightbox={`my-porto-${index}`}
-                      >
+                      <a href={item.image} data-lightbox={`my-porto-${index}`}>
                         <img
                           src={item.image}
                           style={{ objectFit: "fill" }}
