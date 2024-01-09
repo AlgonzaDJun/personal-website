@@ -19,6 +19,7 @@ import {
   SiPhp,
   SiPusher,
   SiRedux,
+  SiTailwindcss,
 } from "react-icons/si";
 import "lightbox2/dist/css/lightbox.min.css";
 // import "lightbox2/dist/js/lightbox-plus-jquery.min.js";
@@ -27,7 +28,6 @@ import "aos/dist/aos.css";
 // AOS.init();
 
 export const Portfolio = () => {
-  const targetRef = useRef(null);
 
   const [domLoaded, setDomLoaded] = useState(false);
 
@@ -73,17 +73,16 @@ export const Portfolio = () => {
     },
     {
       id: 3,
-      title: "In Your Dreams",
-      image: "/images/porto-img/3.jpeg",
-      image2: "/images/porto-img/3b.jpeg",
-      image3: "/images/porto-img/3c.jpeg",
-      desc: "Website ini memiliki fitur-fitur yang memungkinkan pengguna berinteraksi dengan admin melalui live chat, dan mengelola inventaris bagi admin.",
-      gitLink: "https://github.com/AlgonzaDJun/in-your-dreams",
-      demoLink: "http://your-dreams-demo.epizy.com",
+      title: "Todo List With Chat",
+      image: "/images/porto-img/todo.png",
+      image2: "/images/porto-img/todo2.png",
+      desc: "Sebuah Website untuk mengelola todo list Anda dengan tambahan fitur chat antar teman.",
+      gitLink: "https://github.com/AlgonzaDJun/TODO-CHAT",
+      demoLink: "https://todo.juna.my.id/",
       icon: [
-        <SiPhp key={1} color="##797cb0" />,
-        <SiJquery key={2} color="blue" />,
-        <SiPusher key={3} color="black" />,
+        <SiLaravel key={1} color="#F05340" />,
+        <SiTailwindcss  key={2} color="#15BECB"/>,
+        <SiPusher key={3} color="#300D4F" />,
       ],
     },
     {
@@ -146,22 +145,25 @@ export const Portfolio = () => {
                 <SwiperSlide key={index} className="text-center">
                   <div className="porto-card">
                     <div className="porto-card-image">
-                      <img
-                        src={item.image}
-                        style={{ objectFit: "fill" }}
-                        alt="gambar"
-                        onClick={() => {
-                          targetRef.current.click();
-                        }}
-                      />
                       <a
-                        ref={targetRef}
                         href={item.image}
-                        data-lightbox="my-porto"
+                        data-lightbox={`my-porto-${index}`}
+                      >
+                        <img
+                          src={item.image}
+                          style={{ objectFit: "fill" }}
+                          alt="gambar"
+                        />
+                      </a>
+                      <a
+                        href={item.image2}
+                        data-lightbox={`my-porto-${index}`}
                       ></a>
-                      <a href={item.image2} data-lightbox="my-porto"></a>
                       {item.image3 ? (
-                        <a href={item.image3} data-lightbox="my-porto"></a>
+                        <a
+                          href={item.image3}
+                          data-lightbox={`my-porto-${index}`}
+                        ></a>
                       ) : (
                         ""
                       )}

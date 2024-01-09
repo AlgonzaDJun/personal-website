@@ -13,7 +13,7 @@ export const About = () => {
       id: 1,
       judul: "Siapa Saya ?",
       deskripsi:
-        "Perkenalkan, Nama saya, Algonza Dewangga Arjunantyo, biasa dipanggil arjun",
+        "Perkenalkan, Nama saya, Algonza Dewangga Arjunantyo",
       image: "/images/thinking-bro.png",
       animation: "fade-up-right",
     },
@@ -21,7 +21,7 @@ export const About = () => {
       id: 2,
       judul: "Pendidikan ?",
       deskripsi:
-        "Saya berasal dari Universitas Negeri Surabaya, S1 Teknik Informatika Angkatan 2020 (Angkatan Corona😆)",
+        "Saya berasal dari Universitas Negeri Surabaya, Teknik Informatika",
       image: "/images/Graduation-bro.png",
       animation: "fade-up",
     },
@@ -29,7 +29,7 @@ export const About = () => {
       id: 3,
       judul: "Ketertarikan ?",
       deskripsi:
-        "Saya tertarik di bidang web developer, full stack. Lebih ke arah backend, tapi terkadang suka frontend jika bosan.",
+        "Saya tertarik di bidang Software Engineer",
       image: "/images/Code-typing-bro.png",
       animation: "fade-up-left",
     },
