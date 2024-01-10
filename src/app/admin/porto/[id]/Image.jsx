@@ -1,30 +1,7 @@
 "use client";
 import { useState } from "react";
 
-const Image = ({ base64Images, setBase64Images }) => {
-  const [images, setImages] = useState([]); // State untuk menyimpan gambar yang diunggah
-  const [viewFirstImg, setViewFirstImg] = useState(false);
-
-  const handleAddImage = () => {
-    // Menambah input field dan label baru untuk gambar
-    const newImages = [
-      ...images,
-      <div key={images.length}>
-        <img
-          className="w-25"
-          id={`preview${images.length}`}
-          alt={`Preview${images.length}`}
-        />
-        <input
-          type="file"
-          name={`image${images.length}`}
-          onChange={handleFileUpload}
-          className="form-control"
-        />
-      </div>,
-    ];
-    setImages(newImages);
-  };
+const Image = ({ base64Images, setBase64Images, imagesLink }) => {
 
   const handleFileUpload = (e) => {
     setViewFirstImg(true);
@@ -51,11 +28,52 @@ const Image = ({ base64Images, setBase64Images }) => {
     };
   };
 
+  const [images, setImages] = useState([
+    imagesLink.map((images, index) => (
+      <div key={index}>
+        <img
+          className="w-25"
+          id={`preview${images.length}`}
+          alt={`Preview${images.length}`}
+          src={images.url}
+        />
+        <input
+          type="file"
+          name={`image${images.length}`}
+          onChange={handleFileUpload}
+          className="form-control"
+        />
+      </div>
+    )),
+  ]); // State untuk menyimpan gambar yang diunggah
+  const [viewFirstImg, setViewFirstImg] = useState(false);
+
+  const handleAddImage = () => {
+    // Menambah input field dan label baru untuk gambar
+    const newImages = [
+      ...images,
+      <div key={images.length}>
+        <img
+          className="w-25"
+          id={`preview${images.length}`}
+          alt={`Preview${images.length}`}
+        />
+        <input
+          type="file"
+          name={`image${images.length}`}
+          onChange={handleFileUpload}
+          className="form-control"
+        />
+      </div>,
+    ];
+    setImages(newImages);
+  };
+
   // console.log(base64Images);
 
   return (
     <>
-      <div className="mb-3">
+      {/* <div className="mb-3">
         <label htmlFor="formFile" className="form-label">
           Input Gambar
         </label>
@@ -70,12 +88,12 @@ const Image = ({ base64Images, setBase64Images }) => {
           onChange={handleFileUpload}
           className="form-control"
         />
-      </div>
+      </div> */}
       {images.map((image, index) => (
         <div key={index}>
           {image}
           <label className="form-label" htmlFor={`image${index}`}>
-            Gambar {index + 2}
+            Gambar {index + 1}
           </label>
         </div>
       ))}

@@ -1,7 +1,8 @@
-"use client"
-import React, { useState } from "react";
+
+import React from "react";
 import Image from "./Image";
 import connectDB from "@/libs/mongodb";
+import Form from "./Form";
 
 const getPorto = async (id) => {
   await connectDB();
@@ -13,66 +14,14 @@ const getPorto = async (id) => {
 };
 
 const page = async ({ params }) => {
+
   const { id } = params;
   const data = await getPorto(id);
   const { portos } = data;
 
-  const [porto, setPorto] = useState({
-    title: "",
-    description: "",
-    gitLink: "",
-    webLink: "",
-  });
-
   return (
     <div style={{ color: "black" }}>
-      <form action="">
-        <div className="mb-3">
-          <label htmlFor="judulPorto" className="form-label">
-            Judul Portofolio
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="judulPorto"
-            placeholder="Judul Portofolio anda"
-            value={portos.title}
-          />
-        </div>
-
-        <Image />
-
-        <div className="mb-3">
-          <label htmlFor="deskripsi" className="form-label">
-            Deskripsi Portofolio
-          </label>
-          <textarea className="form-control" id="deskripsi" rows="3"></textarea>
-        </div>
-
-        <div className="mb-3">
-          <label htmlFor="linkGithub" className="form-label">
-            Link Github
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="linkGithub"
-            placeholder="wwww.github.com"
-          />
-        </div>
-
-        <div className="mb-3">
-          <label htmlFor="linkLive" className="form-label">
-            Link URL live apabila ada
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="linkLive"
-            placeholder="name@example.com"
-          />
-        </div>
-      </form>
+      <Form data={portos} />
     </div>
   );
 };

@@ -15,7 +15,7 @@ const page = async () => {
   const data = await getPorto();
   const { portos } = data;
 
-  console.log(portos);
+  // console.log(portos);
 
   return (
     <div>
