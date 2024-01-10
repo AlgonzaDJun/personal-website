@@ -1,18 +1,18 @@
 import mongoose, { Schema } from "mongoose";
 
-// const imageSchema = new Schema({
-//   url: String,
-// });
+const imageSchema = new Schema({
+  url: String,
+});
 
-// const iconSchema = new Schema({
-//   text: mongoose.Schema.Types.Mixed,
-// });
+const iconSchema = new Schema({
+  text: mongoose.Schema.Types.Mixed,
+});
 
 const portoSchema = new Schema(
   {
     title: String,
     description: String,
-    // images: [imageSchema],
+    images: [imageSchema],
     gitLink: String,
     webLink: String,
     // icon: iconSchema,
@@ -22,6 +22,6 @@ const portoSchema = new Schema(
   }
 );
 
-const Porto = mongoose.model("Porto", portoSchema);
+const Porto = mongoose.models.Porto || mongoose.model("Porto", portoSchema);
 
 export default Porto;

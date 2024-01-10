@@ -1,14 +1,34 @@
-import React from "react";
+"use client"
+import React, { useState } from "react";
 import Image from "./Image";
+import connectDB from "@/libs/mongodb";
 
-const page = ({ params }) => {
-  const id = params.id;
+const getPorto = async (id) => {
+  await connectDB();
+  const response = await fetch(`http://localhost:3000/api/portos/${id}`, {
+    cache: "no-store",
+  });
+  const data = await response.json();
+  return data;
+};
+
+const page = async ({ params }) => {
+  const { id } = params;
+  const data = await getPorto(id);
+  const { portos } = data;
+
+  const [porto, setPorto] = useState({
+    title: "",
+    description: "",
+    gitLink: "",
+    webLink: "",
+  });
 
   return (
     <div style={{ color: "black" }}>
       <form action="">
         <div className="mb-3">
-          <label for="judulPorto" className="form-label">
+          <label htmlFor="judulPorto" className="form-label">
             Judul Portofolio
           </label>
           <input
@@ -16,20 +36,21 @@ const page = ({ params }) => {
             className="form-control"
             id="judulPorto"
             placeholder="Judul Portofolio anda"
+            value={portos.title}
           />
         </div>
 
         <Image />
 
         <div className="mb-3">
-          <label for="deskripsi" className="form-label">
+          <label htmlFor="deskripsi" className="form-label">
             Deskripsi Portofolio
           </label>
           <textarea className="form-control" id="deskripsi" rows="3"></textarea>
         </div>
 
         <div className="mb-3">
-          <label for="linkGithub" className="form-label">
+          <label htmlFor="linkGithub" className="form-label">
             Link Github
           </label>
           <input
@@ -41,7 +62,7 @@ const page = ({ params }) => {
         </div>
 
         <div className="mb-3">
-          <label for="linkLive" className="form-label">
+          <label htmlFor="linkLive" className="form-label">
             Link URL live apabila ada
           </label>
           <input
@@ -51,8 +72,6 @@ const page = ({ params }) => {
             placeholder="name@example.com"
           />
         </div>
-
-        
       </form>
     </div>
   );

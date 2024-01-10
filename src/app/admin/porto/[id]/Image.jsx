@@ -51,12 +51,12 @@ const Image = ({ base64Images, setBase64Images }) => {
     };
   };
 
-  console.log(base64Images);
+  // console.log(base64Images);
 
   return (
     <>
       <div className="mb-3">
-        <label for="formFile" className="form-label">
+        <label htmlFor="formFile" className="form-label">
           Input Gambar
         </label>
         <img
