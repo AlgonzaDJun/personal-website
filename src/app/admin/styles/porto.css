@@ -4,6 +4,13 @@
   border-radius: 15px;
 }
 
+.button > *, .button:hover > * {
+  /* underline none */
+  text-decoration: none;
+  color: white;
+}
+
+
 .button:hover {
   background-color: #0472a5
 }

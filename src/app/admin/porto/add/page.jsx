@@ -1,9 +1,9 @@
-import React from "react";
-import Image from "./Image";
+"use client";
+import React, { useState } from "react";
+import Image from "../[id]/Image";
 
-const page = ({ params }) => {
-  const id = params.id;
-
+const page = () => {
+  const [base64Images, setBase64Images] = useState([]); // State untuk menyimpan
   return (
     <div style={{ color: "black" }}>
       <form action="">
@@ -19,7 +19,7 @@ const page = ({ params }) => {
           />
         </div>
 
-        <Image />
+        <Image base64Images={base64Images} setBase64Images={setBase64Images} />
 
         <div className="mb-3">
           <label for="deskripsi" className="form-label">
@@ -52,7 +52,9 @@ const page = ({ params }) => {
           />
         </div>
 
-        
+        <button type="button" class="btn btn-success">
+          Submit
+        </button>
       </form>
     </div>
   );
