@@ -55,6 +55,12 @@
   justify-content: center;
 }
 
+@media (max-width: 768px) {
+  .card {
+    max-width: 70%;
+  }
+}
+
 .container:hover > img {
   transform: scale(1.2);
 }

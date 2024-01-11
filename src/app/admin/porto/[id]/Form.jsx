@@ -1,9 +1,12 @@
 "use client";
 import React, { useState } from "react";
 import Image from "./Image";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Form = ({ data }) => {
   const [base64Images, setBase64Images] = useState([]); // State untuk menyimpan
+  const [loadingUpload, setLoadingUpload] = useState("");
 
   const [portos, setPortos] = useState({
     title: data.title,
@@ -22,16 +25,19 @@ const Form = ({ data }) => {
 
   const handleSubmit = async () => {
     const dataSubmit = {
-      ...form,
+      ...portos,
       images: base64Images,
     };
 
-    const response = await fetch(`http://localhost:3000/api/portos`, {
-      method: "POST",
-      body: JSON.stringify(dataSubmit),
-    });
+    const response = await fetch(
+      `http://localhost:3000/api/portos/${data._id}`,
+      {
+        method: "PUT",
+        body: JSON.stringify(dataSubmit),
+      }
+    );
     setLoadingUpload("loading");
-    // const data = await response.json();
+    const coba = await response.json();
     setLoadingUpload("complete");
     toast.success("Berhasil Update Portofolio!", {
       position: "top-right",
@@ -43,18 +49,13 @@ const Form = ({ data }) => {
       progress: undefined,
       theme: "dark",
     });
-    // console.log(data);
-    setForm({
-      title: "",
-      description: "",
-      gitLink: "",
-      webLink: "",
-    });
+    console.log(coba);
   };
 
   return (
     <div>
       <form action="">
+        {loadingUpload === "complete" ? <ToastContainer /> : <></>}
         <div className="mb-3">
           <label htmlFor="judulPorto" className="form-label">
             Judul Portofolio

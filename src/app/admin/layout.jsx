@@ -11,10 +11,14 @@ const layout = ({ children }) => {
         <div className={styles.sidebar}>
           <ul className={styles.sidebarUL}>
             <li className={styles.sidebarItem}>
-              <Link className={styles.sidebarLink} href="/admin/porto">
+              <Link
+                className={styles.sidebarLink}
+                href="/admin/porto"
+                as="/admin/porto"
+              >
                 <div className="d-flex align-items-center gap-2">
                   <IoGameControllerOutline />
-                  Edit Portofolio
+                  <p className="d-none d-md-flex">Edit Portofolio</p>
                 </div>
               </Link>
             </li>
@@ -22,14 +26,16 @@ const layout = ({ children }) => {
               <Link className={styles.sidebarLink} href="/admin/profil">
                 <div className="d-flex align-items-center gap-2">
                   <CgProfile />
-                  Edit Profil
+                  <p className="d-none d-md-flex">Edit Profil</p>
                 </div>
               </Link>
             </li>
           </ul>
         </div>
         <div className={styles.konten}>
-          <div className={styles.kontenSidebar}>{children}</div>
+          <div className="pt-2">
+            <div className={styles.kontenSidebar}>{children}</div>
+          </div>
         </div>
       </div>
     </main>

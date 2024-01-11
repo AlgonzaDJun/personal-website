@@ -1,8 +1,9 @@
 "use client";
 import React, { useState } from "react";
-import Image from "../[id]/Image";
+
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Image from "./Image";
 
 const page = () => {
   const [base64Images, setBase64Images] = useState([]); // State untuk menyimpan
@@ -54,7 +55,28 @@ const page = () => {
 
   return (
     <div style={{ color: "black" }} className="position-relative">
+      {loadingUpload === "loading" ? (
+        <div
+          className="position-absolute top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center"
+          style={{
+            backgroundColor: "rgba(0,0,0,0.5)",
+            zIndex: "100",
+          }}
+        >
+          <div
+            className="spinner-border text-success"
+            style={{ width: "3rem", height: "3rem" }}
+            role="status"
+          >
+            <span className="visually-hidden">Loading...</span>
+          </div>
+        </div>
+      ) : (
+        <></>
+      )}
       {loadingUpload === "complete" ? <ToastContainer /> : <></>}
+      <h2>Tambah Portofolio</h2>
+      <hr />
       <form action="" encType="multipart/form-data">
         <div className="mb-3">
           <label htmlFor="judulPorto" className="form-label">

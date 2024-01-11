@@ -1,6 +1,4 @@
-
 import React from "react";
-import Image from "./Image";
 import connectDB from "@/libs/mongodb";
 import Form from "./Form";
 
@@ -14,13 +12,14 @@ const getPorto = async (id) => {
 };
 
 const page = async ({ params }) => {
-
   const { id } = params;
   const data = await getPorto(id);
   const { portos } = data;
 
   return (
     <div style={{ color: "black" }}>
+      <h2>Edit Portofolio</h2>
+      <hr />
       <Form data={portos} />
     </div>
   );

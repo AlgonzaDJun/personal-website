@@ -2,66 +2,84 @@
 import { useState } from "react";
 
 const Image = ({ base64Images, setBase64Images, imagesLink }) => {
-
-  const handleFileUpload = (e) => {
+  const handleFileUpload = (e, index) => {
     setViewFirstImg(true);
-    // Handle aksi upload file di sini
-    // Misalnya, Anda dapat menggunakan FormData untuk mengirim file ke server
     const file = e.target.files[0];
     const reader = new FileReader();
 
-    // Menyiapkan pratinjau gambar sebelum diunggah
     reader.onload = function (event) {
-      const img = document.getElementById(`preview${images.length}`);
+      const img = document.getElementById(`preview${index}`);
       img.src = event.target.result;
-      //   const base64Image = event.target.result;
-      //   const newImages = [...base64Images, base64Image];
-      //   setBase64Images(newImages);
     };
 
-    // Membaca file sebagai URL
     reader.readAsDataURL(file);
 
     reader.onloadend = () => {
-      const newImages = [...base64Images, reader.result];
-      setBase64Images(newImages);
+      // const newBase64Images = [...base64Images, reader.result];
+      setBase64Images((prev) => {
+        return [...prev, reader.result];
+      });
     };
   };
 
-  const [images, setImages] = useState([
-    imagesLink.map((images, index) => (
-      <div key={index}>
-        <img
-          className="w-25"
-          id={`preview${images.length}`}
-          alt={`Preview${images.length}`}
-          src={images.url}
-        />
-        <input
-          type="file"
-          name={`image${images.length}`}
-          onChange={handleFileUpload}
-          className="form-control"
-        />
-      </div>
-    )),
-  ]); // State untuk menyimpan gambar yang diunggah
+  // const handleFileOld = (e) => {
+  //   setViewFirstImg(true);
+  //   // Handle aksi upload file di sini
+  //   // Misalnya, Anda dapat menggunakan FormData untuk mengirim file ke server
+  //   const file = e.target.files[0];
+  //   const readerNew = new FileReader();
+
+  //   // Menyiapkan pratinjau gambar sebelum diunggah
+  //   readerNew.onload = function (event) {
+  //     const img = document.getElementById(e.target.id);
+  //     img.src = event.target.result;
+  //   };
+
+  //   // Membaca file sebagai URL
+  //   readerNew.readAsDataURL(file);
+
+  //   readerNew.onloadend = () => {
+  //     const newImages = [...base64Images, readerNew.result];
+  //     setBase64Images(newImages);
+  //   };
+  // };
+
+  const imagesElements = imagesLink.map((image, index) => (
+    <div key={index}>
+      <img
+        className="w-25"
+        id={`preview${index}`}
+        alt={`Preview${index}`}
+        src={image.url}
+      />
+      <input
+        type="file"
+        name={`image${index}`}
+        onChange={(e) => handleFileUpload(e, index)}
+        className="form-control"
+        id={`preview${index}`}
+      />
+    </div>
+  ));
+
+  const [images, setImages] = useState(imagesElements);
   const [viewFirstImg, setViewFirstImg] = useState(false);
 
   const handleAddImage = () => {
     // Menambah input field dan label baru untuk gambar
+    const newIndex = images.length + 1;
     const newImages = [
       ...images,
-      <div key={images.length}>
+      <div key={newIndex}>
         <img
           className="w-25"
-          id={`preview${images.length}`}
-          alt={`Preview${images.length}`}
+          id={`preview${newIndex}`}
+          alt={`Preview${newIndex}`}
         />
         <input
           type="file"
-          name={`image${images.length}`}
-          onChange={handleFileUpload}
+          name={`image${newIndex}`}
+          onChange={(e) => handleFileUpload(e, newIndex)}
           className="form-control"
         />
       </div>,
@@ -73,22 +91,6 @@ const Image = ({ base64Images, setBase64Images, imagesLink }) => {
 
   return (
     <>
-      {/* <div className="mb-3">
-        <label htmlFor="formFile" className="form-label">
-          Input Gambar
-        </label>
-        <img
-          id={`preview${images.length}`}
-          alt={`Preview${images.length}`}
-          className={viewFirstImg ? "w-25" : "d-none"}
-        />
-        <input
-          type="file"
-          name={`image${images.length}`}
-          onChange={handleFileUpload}
-          className="form-control"
-        />
-      </div> */}
       {images.map((image, index) => (
         <div key={index}>
           {image}
