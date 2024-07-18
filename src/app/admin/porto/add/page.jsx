@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Image from "./Image";
+import { Editor } from "@tinymce/tinymce-react";
 
 const page = () => {
   const [base64Images, setBase64Images] = useState([]); // State untuk menyimpan
@@ -99,14 +100,27 @@ const page = () => {
           <label htmlFor="deskripsi" className="form-label">
             Deskripsi Portofolio
           </label>
-          <textarea
+          {/* <textarea
             className="form-control"
             id="deskripsi"
             name="description"
             rows="3"
             value={form.description}
             onChange={handleOnChange}
-          ></textarea>
+          ></textarea> */}
+          <Editor
+            apiKey="12v7l0i8ghhs8s6bry98ospo2xag6879cjbpjzcdlkwzkorx"
+            initialValue={form.description}
+            onChange={(e) =>
+              setForm({ ...form, description: e.target.getContent() })
+            }
+            init={{
+              plugins:
+                "anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount linkchecker",
+              toolbar:
+                "undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat",
+            }}
+          />
         </div>
 
         <div className="mb-3">

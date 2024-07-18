@@ -29,9 +29,15 @@ const Card = ({
     router.refresh();
   };
 
+  const imgIndex = description.indexOf("<img");
+
+  // Jika <img ditemukan, potong deskripsi sampai sebelum <img
+  const limitedDescription =
+    imgIndex !== -1 ? description.substring(0, imgIndex) : description;
+
   return (
     <div>
-      <ToastContainer/>
+      <ToastContainer />
       <div
         className="animate__animated animate bounce card "
         style={{
@@ -43,7 +49,12 @@ const Card = ({
         </div>
         <div className="card-body">
           <h5 className="card-title ms-1">{title}</h5>
-          <p className="card-text ms-1">{description}</p>
+          {/* <p className="card-text ms-1">{description}</p> */}
+
+          <div
+            className="card-text ms-1"
+            dangerouslySetInnerHTML={{ __html: limitedDescription }}
+          />
 
           <Link
             href={{

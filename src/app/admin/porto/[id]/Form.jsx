@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Image from "./Image";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Editor } from "@tinymce/tinymce-react";
 
 const Form = ({ data }) => {
   const [base64Images, setBase64Images] = useState([]); // State untuk menyimpan
@@ -24,6 +25,8 @@ const Form = ({ data }) => {
   };
 
   const handleSubmit = async () => {
+    // console.log(portos);
+    // return;
     const dataSubmit = {
       ...portos,
       images: base64Images,
@@ -81,14 +84,22 @@ const Form = ({ data }) => {
           <label htmlFor="deskripsi" className="form-label">
             Deskripsi Portofolio
           </label>
-          <textarea
-            className="form-control"
-            id="deskripsi"
-            rows="3"
-            name="description"
-            value={portos.description}
-            onChange={handleChange}
-          ></textarea>
+          <Editor
+            apiKey="12v7l0i8ghhs8s6bry98ospo2xag6879cjbpjzcdlkwzkorx"
+            initialValue={portos.description}
+            onChange={(evt) => {
+              setPortos({
+                ...portos,
+                description: evt.target.getContent(),
+              });
+            }}
+            init={{
+              plugins:
+                "anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount linkchecker",
+              toolbar:
+                "undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat",
+            }}
+          />
         </div>
 
         <div className="mb-3">
