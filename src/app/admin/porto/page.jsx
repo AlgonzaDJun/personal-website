@@ -4,7 +4,7 @@ import Card from "./Card";
 import Link from "next/link";
 
 const getPorto = async () => {
-  const response = await fetch(`http://localhost:3000/api/portos/`, {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/portos/`, {
     cache: "no-store",
   });
   const data = await response.json();

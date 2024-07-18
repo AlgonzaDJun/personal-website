@@ -14,7 +14,7 @@ const Card = ({
 }) => {
   const router = useRouter();
   const handleDelete = async (id) => {
-    await fetch(`http://localhost:3000/api/portos/${id}`, {
+    await fetch(`${process.env.NEXT_PUBLIC_API_URL}/portos/${id}`, {
       method: "DELETE",
     });
     toast.success("Berhasil Hapus Portofolio!", {

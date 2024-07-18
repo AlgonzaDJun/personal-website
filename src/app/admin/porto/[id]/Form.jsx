@@ -33,7 +33,7 @@ const Form = ({ data }) => {
     };
 
     const response = await fetch(
-      `http://localhost:3000/api/portos/${data._id}`,
+      `${process.env.NEXT_PUBLIC_API_URL}/portos/${data._id}`,
       {
         method: "PUT",
         body: JSON.stringify(dataSubmit),

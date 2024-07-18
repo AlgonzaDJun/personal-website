@@ -4,7 +4,7 @@ import Form from "./Form";
 
 const getPorto = async (id) => {
   await connectDB();
-  const response = await fetch(`http://localhost:3000/api/portos/${id}`, {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/portos/${id}`, {
     cache: "no-store",
   });
   const data = await response.json();

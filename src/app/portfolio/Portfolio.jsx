@@ -32,7 +32,7 @@ export const Portfolio = () => {
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("/api/portos")
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/portos`)
       .then((res) => res.json())
       .then((data) => {
         setData(data);

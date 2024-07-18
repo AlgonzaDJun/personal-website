@@ -28,7 +28,7 @@ const page = () => {
       images: base64Images,
     };
 
-    const response = await fetch(`http://localhost:3000/api/portos`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/portos`, {
       method: "POST",
       body: JSON.stringify(dataSubmit),
     });
