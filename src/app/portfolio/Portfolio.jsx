@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../css/portfolio.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.min.css";
@@ -28,6 +28,18 @@ import "aos/dist/aos.css";
 // AOS.init();
 
 export const Portfolio = () => {
+  const [data, setData] = useState(null);
+  const [isLoading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch("/api/portos")
+      .then((res) => res.json())
+      .then((data) => {
+        setData(data);
+        setLoading(false);
+      });
+  }, []);
+
   const [domLoaded, setDomLoaded] = useState(false);
 
   useEffect(() => {
@@ -100,6 +112,22 @@ export const Portfolio = () => {
       ],
     },
   ];
+
+  if (isLoading)
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          marginTop: "100px",
+          marginBottom: "100px",
+        }}
+      >
+        <div className="loader"></div>
+      </div>
+    );
+  if (!data) return <p>No profile data</p>;
 
   return (
     <div className="w-100 h-100 mt-md-4 mt-0 d-block p-3 d-md-flex justify-content-md-center align-items-md-center flex-column about">
@@ -192,6 +220,56 @@ export const Portfolio = () => {
                 </SwiperSlide>
               );
             })}
+
+            {data &&
+              data.portos.map((item, index) => {
+                return (
+                  <SwiperSlide key={index} className="text-center">
+                    <div className="porto-card">
+                      <div className="porto-card-image">
+                        <a
+                          href={item.images[0].url}
+                          data-lightbox={`my-porto-${index}`}
+                        >
+                          <img
+                            src={item.images[0].url}
+                            style={{ objectFit: "fill" }}
+                            alt="gambar"
+                          />
+                        </a>
+                        <a
+                          href={item.images[1].url}
+                          data-lightbox={`my-porto-${index}`}
+                        ></a>
+                        {item.images[2] ? (
+                          <a
+                            href={item.images[2].url}
+                            data-lightbox={`my-porto-${index}`}
+                          ></a>
+                        ) : (
+                          ""
+                        )}
+                      </div>
+                      <div className="porto-card-title">
+                        <Link target="_blank" href={item.gitLink}>
+                          <BsGithub color="black" />
+                        </Link>
+                        <h3 className="my-auto mx-3">{item.title}</h3>
+                        <Link target="_blank" href={item.webLink}>
+                          <BsLink color="black" />
+                        </Link>
+                      </div>
+                      <div className="">
+                        <div
+                          className="px-4 border-2"
+                          dangerouslySetInnerHTML={{ __html: item.description }}
+                        />
+                        {/* <p className="px-4 border-2">{item.description}</p> */}
+                      </div>
+                    </div>
+                  </SwiperSlide>
+                );
+              })}
           </Swiper>
         ) : null}
       </div>
