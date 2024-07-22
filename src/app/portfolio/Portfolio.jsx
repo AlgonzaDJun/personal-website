@@ -259,7 +259,7 @@ export const Portfolio = () => {
                           <BsLink color="black" />
                         </Link>
                       </div>
-                      <div className="">
+                      <div className="porto-card-description">
                         <div
                           className="px-4 border-2"
                           dangerouslySetInnerHTML={{ __html: item.description }}
