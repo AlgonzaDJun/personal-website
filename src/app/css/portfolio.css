@@ -54,12 +54,30 @@ div.about-text {
   max-height: 170px;
 }
 
+.porto-card-description2 {
+  /* width: 50rem; */
+  margin-inline: auto;
+  /* overflow: scroll; */
+  overflow-y: auto;
+  padding-inline: 5rem;
+  height: 250px;
+  max-height: 270px;
+}
+
 @media screen and (max-width: 768px) {
   .porto-card-description {
     text-align: left;
     padding-inline: 0.2rem;
     height: 150px;
     max-height: 150px;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+  }
+  .porto-card-description {
+    text-align: left;
+    padding-inline: 0.2rem;
+    height: 250px;
+    max-height: 250px;
     overflow-y: scroll;
     scroll-behavior: smooth;
   }

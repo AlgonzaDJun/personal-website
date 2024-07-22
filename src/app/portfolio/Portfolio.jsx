@@ -259,13 +259,14 @@ export const Portfolio = () => {
                           <BsLink color="black" />
                         </Link>
                       </div>
-                      <div className="porto-card-description">
+                      <div className="porto-card-description2">
                         <div
                           className="px-4 border-2"
                           dangerouslySetInnerHTML={{ __html: item.description }}
                         />
                         {/* <p className="px-4 border-2">{item.description}</p> */}
                       </div>
+                      
                     </div>
                   </SwiperSlide>
                 );
