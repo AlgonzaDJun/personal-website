@@ -90,7 +90,7 @@ export const Portfolio = () => {
       image3: "/images/porto-img/4c.png",
       desc: "Website pemesanan paket travel dengan integrasi payment gateway dari MIDTRANS serta dashboarad admin.",
       gitLink: "#",
-      demoLink: "https://travel.juna.my.id",
+      demoLink: "https://travel.toska.my.id",
       icon: [
         <SiLaravel key={1} color="#F05340" />,
         <SiMysql key={2} color="#00758f" />,
@@ -104,7 +104,7 @@ export const Portfolio = () => {
       image2: "/images/porto-img/todo2.png",
       desc: "Sebuah Website untuk mengelola todo list Anda dengan tambahan fitur chat antar teman.",
       gitLink: "https://github.com/AlgonzaDJun/TODO-CHAT",
-      demoLink: "https://todo.juna.my.id/",
+      demoLink: "https://todo.toska.my.id/",
       icon: [
         <SiLaravel key={1} color="#F05340" />,
         <SiTailwindcss key={2} color="#15BECB" />,
